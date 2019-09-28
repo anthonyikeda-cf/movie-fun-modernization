@@ -24,8 +24,8 @@ public class Application {
     }
 
     @Bean
-    public ServletRegistrationBean actionServletRegistration(MovieServlet actionServlet) {
-        return new ServletRegistrationBean(actionServlet, "/moviefun/*");
+    public ServletRegistrationBean<MovieServlet> actionServletRegistration(MovieServlet actionServlet) {
+        return new ServletRegistrationBean<>(actionServlet, "/moviefun/*");
     }
 
     @Bean

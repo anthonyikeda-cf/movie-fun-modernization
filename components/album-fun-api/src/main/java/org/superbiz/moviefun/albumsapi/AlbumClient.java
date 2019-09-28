@@ -26,11 +26,14 @@ public class AlbumClient {
         restOperations.postForEntity(albumsUrl, album, AlbumInfo.class);
     }
 
-//    public AlbumInfo find(long id) {
-//        return null;
-//    }
+    public AlbumInfo find(long id) {
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(albumsUrl).path(String.valueOf(id));
+        logger.debug("Loading album from {}", builder.toUriString());
+        return restOperations.exchange(builder.toUriString(), HttpMethod.GET, null, AlbumInfo.class).getBody();
+    }
 
     public List<AlbumInfo> getAlbums() {
+        logger.debug("Listing albums at {}", albumsUrl);
         return restOperations.exchange(albumsUrl, HttpMethod.GET, null, albumListType).getBody();
     }
 
