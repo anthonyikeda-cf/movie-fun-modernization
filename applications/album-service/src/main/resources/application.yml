@@ -1,4 +1,4 @@
-server.port: 8081
+server.port: 8083
 
 spring:
   application:
@@ -8,8 +8,9 @@ spring:
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
 
   datasource:
-    url: jdbc:mysql://localhost:3306/albums?useSSL=false
+    url: jdbc:mysql://localhost:3306/albums?useSSL=false&serverTimezone=UTC
     username: root
+    password: password
     tomcat:
       max-active: 4
       max-idle: 4
